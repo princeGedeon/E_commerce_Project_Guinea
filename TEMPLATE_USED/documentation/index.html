@@ -1,0 +1,295 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+		pre,code { font-family:"Consolas", Courier New, Courier, monospace; padding:15px; background:#f7f7f7; margin:0px 0px 18px; border:1px solid #e5e5e5; line-height:18px; color:#000 }
+code { padding:0px 3px; background-image:none; background:#f5f5f5; border:none }
+pre { white-space:pre-wrap; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	  <h3 class="center alt"> Documentation by &ldquo;Ansonika&rdquo; v1.4</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;ALLAIA - HTML Site template&rdquo;</h1>
+		
+		<div class="borderTop">
+		  <div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 17 February 2020<br>
+                    Lat udpate: 14 January 2022<br>
+					By: Ansonika</strong>
+			  </p>
+      </div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions, please post a comment on item page. If you are happy with the theme, please <strong>TAKE A MOMENT TO RATE IT</strong> from your DOWNLOADS PAGE.
+Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files, Structure and basic modifications</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#credits">Sources and Credit</a></li>
+             <li><a href="#updates">UPDATES</a></li>
+		</ol>
+   
+
+      <hr>
+        
+  <h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+	  <p>  It's based on Boostrap 5 framework grid. It's ULTRA RESPONSIVE!!. 
+	  The item comes with SASS files for the primary styles.</p>
+<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files Structure and basic modfication</strong> - <a href="#toc">top</a>	  </h3>
+	  <p>The css files are inside the css folder (not minified and minified versions included) .To modify colors, typografy, button style ecc....find the realtive comment line in style.css. 
+      <strong>We reccomend to apply every changes in css/custom.css in order to makes future updates easly to apply.</strong>
+      Below how the main style file is organized:</p>
+<p>1. SITE STRUCTURE<br>
+  - 1.0 Icons<br>
+  - 1.1 Typography<br>
+  - 1.2 Buttons<br>
+  - 1.3 Structure<br>
+  - 1.4 Navigation<br>
+  - 1.5 Top banner<br>
+  - 1.6 Owl Carousel<br>
+  - 1.7 Mobile Menu</p>
+<p>2. CONTENT<br>
+  - 2.1 Home<br>
+  - 2.2 General Listing </p>
+<p>3. COMMON<br>
+  - 3.1 Owl Carousel Custom Nav <br>
+  - 3.2 Misc<br>
+  - 3.3 Spacing<br>
+  - 3.4 Sing In Modal<br>
+  - 3.5 Modal popup<br>
+  - 3.6 Pagination<br>
+  - 3.7 Footer<br>
+  - 3.8 Magnific Popup CSS</p>
+<pre>
+<p><strong>Note
+</strong>1) To increase the Page Speed the we create a customized version of the Bootsrap Libray removing the not used styles and inclued as default. <br>You can enable styles by uncomment inbootstrap.custom.css the styles needed in your project, then reminify the file.
+
+2) To increase the Page Speed we inclued the main site css style in css/style.css;  for specific styles related and present only on specific pages, 
+we<strong> </strong>create dedicated css files.<strong><br></strong>
+Example for listing.html (and listing variation pages):
+&lt;!-- SPECIFIC CSS --&gt;<br>&lt;link href=&quot;css/listing.css&quot; rel=&quot;stylesheet&quot;&gt;</p><p>The item comes with SASS  files.
+
+3) Same logic for the some js files; js/common_func.js contain the scripts common for all pages of the template. Specific pages, have dedicate 
+js files.
+
+Example for listing.html (and listing variation pages):
+&lt;!-- SPECIFIC SCRIPTS --&gt;<br>&lt;script src=&quot;js/sticky_sidebar.min.js&quot;&gt;&lt;/script&gt;<br>&lt;script src=&quot;js/specific_listing.js&quot;&gt;&lt;/script&gt;</p></pre>
+<p><strong>Change the logo<br>
+</strong>To change the logo, simply use your PNG24 file (suggested logo height is 35/40px) or better use an svg version. Below how is coded</p>
+<pre>&lt;div id=&quot;logo&quot;&gt;<br>	&lt;a href=&quot;index.html&quot;&gt;&lt;img src=&quot;img/logo.svg&quot; alt=&quot;&quot; width=&quot;100&quot; height=&quot;35&quot;&gt;&lt;/a&gt;<br>&lt;/div&gt;</pre>
+  
+<p><strong>Home with video header (fallback with a background image in tablets and mobile: these devices does not support video autoplay as background due to reduce bandwith consume)</strong><br>
+ </p>
+<pre>1)Save you mp4 and ogv video in the video folder.The name of the files must match the datasource tag:<br>
+Example<br>data-teaser-source=&quot;video/intro&quot; (folder/name_files)=<br>intro.mp4<br>intro.ogv
+
+You can change also the opacity in style.css <br><br>video {<br>	position: absolute;<br>	top: 0;<br>	bottom: 0;<br>	left: 0;<br>	right: 0;<br>	opacity: 0.6;<br>}<br><br>2) To change the fallback background image for mobiles and tablets open css/style.css and 
+find this class (video on background is disable on tablet and mobiles due to bandwith consume limit):<br><br>@media (max-width: 1024px):<br>#hero_video{
+background: #ccc url(../img/home_section_1.jpg);
+background-size:cover;
+background-position: center bottom;}<br></pre>
+
+<br>
+<p><strong>How Lazy Load Works</strong><br>
+<pre>1) Owl Carosuel Lazy Load
+
+&lt;img src="<a target="_blank" href="img/lazy-placeholder.png" rel="noreferrer noopener">img/lazy-placeholder.png</a>" data-src="img/location_1.jpg" <strong>class="owl-lazy"</strong> alt=""&gt;
+
+2) Lazy load images
+
+&lt;img src="<a target="_blank" href="img/location_list_placeholder.png" rel="noreferrer noopener">img/location_list_placeholder.png</a>" data-src="img/location_list_1.jpg" alt="" <strong>class="lazy"</strong>&gt;
+
+or use for the src attribute a 1px gif transparent
+
+&lt;img src="<a target="_blank" href="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" rel="noreferrer noopener">data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==</a>" 
+data-src="img/cards_all.svg" alt="" width="198" height="30" <strong>class="lazy"</strong>&gt;
+
+You can delete the &quot;src&quot; attribute and leave only &quot;data-src&quot;, the page gain in performance with less<br>request to the server but the code result not W3C validated due the &quot;src&quot; attribute result missing.</pre>
+<br>
+<p><strong>Control the opacity of the header images in the inner pages</strong><br>
+<pre>You can control the opacity of the header images via data attribute as the example below:	
+	
+.&lt;div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)"&gt;</pre><br>
+
+<p><strong>Count Down Product Offer</strong><br>
+<pre>Just simply set your data on the item &gt; data-countdown 
+
+&lt;figure&gt;<br>&lt;span class=&quot;ribbon off&quot;&gt;-30%&lt;/span&gt;<br>&lt;a href=&quot;product-detail-1.html&quot;&gt;<br>&lt;img class=&quot;img-fluid lazy&quot; src=&quot;img/products/product_placeholder_square_medium.jpg&quot; data-src=&quot;img/products/shoes/1.jpg&quot; alt=&quot;&quot;&gt;	
+&lt;img class=&quot;img-fluid lazy&quot; src=&quot;img/products/product_placeholder_square_medium.jpg&quot; data-src=&quot;img/products/shoes/1_b.jpg&quot; alt=&quot;&quot;&gt;	
+&lt;/a&gt;<br>&lt;div <strong>data-countdown=&quot;2019/05/15&quot;</strong> class=&quot;countdown&quot;&gt;&lt;/div&gt;<br>&lt;/figure&gt;</pre>
+<br>
+      
+<p><strong>THE GRID</strong><br> 
+      Please refer to this <a href="http://getbootstrap.com/">documentation Boostrap</a></p>
+
+      <hr>
+<h3 id="javascript"><strong>D) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+	  <p>This theme use these Javascript (minified versions included). I've included the common theme scripts in a single file for a fast edit and load (or if you prefer you can find the same js in separate files in js folder). Each page could have specific js related to the page.</p>
+      <p><strong>common_scripts.js content:
+      </strong>      
+      <ul>
+      <li>jQuery 3.3.1</li>
+     <li>Owl Carousel</li>
+     <li>jQuery Mmenu</li>
+     <li>jQuery Countdown</li>
+     <li>MagnificPopup.js</li>
+     <li>Wow.js</li>
+     <li> Footer-reveal.js</li>
+      <li>Lazy load images</li>
+      <li>Boostrap.bundle.js</li>
+      </ul>
+      </p>
+<hr>
+		
+		<h3 id="credits"><strong>E) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+	  <p>I've used the following images, icons or other files as listed. For the js listed below, you can find the <strong>more documentation</strong> on the relative sites.
+		
+	  <ul>
+        <li><a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a></li>
+        <li><a href="http://jquery.com/">Jquery</a></li>
+        <li><a href="http://owlgraphic.com/owlcarousel/">Owl carousel</a></li>
+        <li><a href="https://github.com/IainAndrew">Footer-reveal.js</a></li>
+        <li><a href="https://github.com/WeCodePixels/theia-sticky-sidebar">Theia Sticky Sidebar </a></li>
+        <li><a href="https://modernizr.com/">Modernizr</a></li>
+        <li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific popup</a></li>
+        <li><a href="http://hilios.github.io/jQuery.countdown/">Jquery Countdown</a></li>
+        <li><a href="https://mmenujs.com/">Mmenu.js</a></li>
+	  </ul>
+		<p>Images are not included.</p>
+        <hr>
+        <h3 id="updates"><strong>E) Updates</strong> - <a href="#toc">top</a></h3>
+        <strong>v.1.4 14 January 2022</strong>
+        <ol>
+        <li>Updated documentation</li>
+      </ol>
+      
+        <strong>v.1.3 5 August 2021</strong>
+        <ol>
+        <li>Updated to Bootstrap Version</li>
+        <li>Updated jQuery Version</li>
+        <li>Updated Google Font Link</li>
+      </ol>
+      <pre>
+HOW TO UPDATE FROM PREVIOUS VERSION
+
+1) Updated to Bootstrap Version. Update the following files:
+- css/bootstrap.css 
+- css/bootstrap.min.css 
+- css/bootstrap.custom.css 
+- css/bootstrap.custom.min.css 
+- css/style.css (classes updated: .tooltip, .form-group, .container, .modal.newsletter)
+- js/functions.js (//Footer collapse script + //Tooltips)
+- js/common_scripts.js 
+- js/common_scripts.min.js
+
+NOTE: you have to apply some changes in the html code of the page since in BS5 there are small differences. Below a short  list or see here <a href="https://getbootstrap.com/docs/5.0/migration/">https://getbootstrap.com/docs/5.0/migration/</a>  
+
+MODALS
+data-modal &gt; data-bs-modal 
+data-target &gt; data-bs-target 
+data-dismiss &gt; data-bs-dismiss  
+The code of te close button has been changed too. 
+
+COLLAPSE AND TOGGLES
+data-toggle=.. &gt; data-bs-toggle=...
+data-toggle=... &gt; data-bs-toggle=...
+
+CLASSES
+.float-left &gt; .float-start
+.float-right &gt; .float-end
+.text-left &gt; .text-start
+.text-right &gt; .text-end
+.no-gutter &gt; .g-0
+
+2) Update js/common_scripts.js + js/common_scripts.min.js 
+
+3) Update the google font link in the head of the pages.  </pre>
+      <strong>v.1.2 18 February 2021</strong>
+      <ol>
+        <li>Updated Documentation</li>
+      </ol>
+        
+      <strong>v.1.1 27 August 2020</strong>
+      <ol>
+        <li>Updated Bootstrap Version</li>
+        <li>Updated Jquery Version to 3.5x</li>
+        <li>Added 2d level categories menu long list</li>
+        <li>Added 3rd level categories menu</li>
+        </ol>
+        <pre>HOW TO UPDATE FROM PREVIOUS VERSION
+
+1) Update the following files css/bootstrap_custom.css, css/bootstrap_custom.min.css, js/common_scripts.js, js/common_scripts.min.js
+
+2) Update js/common_scripts.js, js/common_scripts.min.js
+
+3) Takes as reference menu-cat-long.html and in css/style.css new styles under the comments /* menu long */ 
+
+4) Takes as menu-cat-3-levels.html and in css/style.css update the /* menu categories */ section</pre>
+        <hr>
+
+<h3>Maybe you are interested in</h3>
+<p><a href="https://1.envato.market/DmbYj"><img src="assets/images/01-panagea-tours-hotels-restaurants-listing.jpg" width="590" height="300"></a></p>
+<p><a href="https://1.envato.market/xv2eA"><img src="assets/images/01-sparker-directory-listings-template.jpg" width="590" height="300"></a></p>
+<p><a href="https://1.envato.market/ryzjQ"><img src="assets/images/01-citytours-travel-hotel-tour-template.__large_preview.jpg" width="590" height="300"></a></p>
+<p><a href="https://1.envato.market/NJQ17"><img src="assets/images/01-travelguide-travel-site-template.jpg" width="590" height="300"></a></p>
+<p><a href="https://1.envato.market/EPzrP"><img src="assets/images/01-bestours-multipurpose-tours-template.jpg" width="590" height="300"></a></p>
+
+<p><a href="https://1.envato.market/QXNVP"><img src="assets/images/01-country-hotel-accommodation-b&b.jpg" width="590" height="300"></a></p>
+<p><a href="https://1.envato.market/YYqEJ"><img src="assets/images/01-albert-hotel-bed-and-breakfast.jpg" width="590" height="300"></a></p>
+<p><strong><br>
+    <img src="assets/images/avatar.jpg" width="80" height="80"><br>
+	  <br>
+    Once again, thank you so much for purchasing this theme. Please take a moment to rate it from your Downloads page.</strong><br> 
+		  
+<h3>Need support?</h3>
+For support contact me using the form on my profile page <span class="text_medium">with subject <strong>[ThemeForest Support]  Template name</strong></span>, or via the Support Tab on the item page. You will receive an answer within 24-48 hours (working days)  GMT  +1.
+<ul>
+<li>I only provide support for fixing bugs or  issues on my original items.</li>
+<li>I don't provide free support for additional custom modifications to the items.</li>
+<li>Please provide your site link, screenshots and other information about your issue.</li>
+<li><a href="http://themeforest.net/page/item_support_policy" rel="nofollow"><strong>Envato support terms</strong></a></li>
+</ul>
+
+<h3>Need customization or availability for freelance projects?</h3>
+Just send an email via profile page form, we will check our availability; please don't forget to specify:
+<ul>
+<li>if you are a company, agency or private user</li>
+<li>all the information about your projects, needs, site urls, project sheet, etc..</li>
+<li>from which country you are</li>
+<li>if you have a deadline</li>
+<li>if you have basic knowledge of  HTML , CSS, JS,  PHP</li>
+</ul>
+<p class="append-bottom alt large"><strong>Ansonika</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
