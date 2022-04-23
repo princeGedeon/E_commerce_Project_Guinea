@@ -11,3 +11,6 @@ class User(AbstractUser):
 
     REQUIRED_FIELDS = ['phone','username']
 
+    @property
+    def date_joined_(self):
+        return self.date_joined.date()
