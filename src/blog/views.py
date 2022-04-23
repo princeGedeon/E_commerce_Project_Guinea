@@ -8,7 +8,7 @@ from blog.models import Post
 
 
 class BlogListView(ListView):
-    queryset = Post.objects.filter(is_valid=True)
+    queryset = Post.objects.all()
     template_name = "pages/blog/blog.html"
     context_object_name = "posts"
 

@@ -319,6 +319,7 @@
 					</div>
 					<!-- /widget -->
 					<div class="row">
+
 						{% for post in posts%}
 						<div class="col-md-6">
 							<article class="blog">
@@ -328,9 +329,9 @@
 									</a>
 								</figure>
 								<div class="post_info">
-									<small>{{post.categorie}} - {{post.date}}</small>
+									<small>{{post.category}} - {{post.date}}</small>
 									<h2><a href="blog-post.html">{{post.titre}}</a></h2>
-									<p>{{post.contenu}}</p>
+									<p>{{post.contenu | truncatewords:15}}</p>
 									<ul>
 										<li>
 											<div class="thumb"><img src="img/avatar.jpg" alt=""></div>
