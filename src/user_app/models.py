@@ -48,6 +48,10 @@ class Achetteur(models.Model):
 class Member(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     poste=models.CharField(max_length=150,blank=True,null=True)
+    profile = models.ImageField(upload_to="profiles/Vendeur/images", blank=True, null=True)
+
+    def __str__(self):
+        return f"Membre {self.user.username}"
 
 
 
