@@ -11,3 +11,6 @@ def about(request):
     membres=Member.objects.all()
     context={'members':membres}
     return render(request,'pages/about.html',context)
+
+def contact(request):
+    return render(request,'pages/contact.html')
