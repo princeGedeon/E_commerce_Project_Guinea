@@ -20,7 +20,7 @@ class BlogListView(ListView):
         context['posts'] = Post.objects.all()
         context['latest_posts']=context['posts'].order_by('-date')[0:4]
         context['categories']=Categorie.objects.all()
-        context['tags']=Tag.objects.all()
+
         print(context)
         return context
 
@@ -40,7 +40,7 @@ class BlogPostDetailView(DetailView):
         context['posts'] = Post.objects.all()
         context['latest_posts']=context['posts'].order_by('-date')[0:4]
         context['categories']=Categorie.objects.all()
-        context['tags']=Tag.objects.all()
+
         print(context)
         return context
 

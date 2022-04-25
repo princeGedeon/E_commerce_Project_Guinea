@@ -20,6 +20,10 @@ class Tag(models.Model):
     def __str__(self):
         return self.libelle
 
+    @property
+    def get_number_post(self):
+        return self.post_set.count()
+
 class Post(models.Model):
     user=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     date=models.DateTimeField(auto_now_add=True)
