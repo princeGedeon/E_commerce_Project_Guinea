@@ -10,6 +10,7 @@ class User(AbstractUser):
         VENDEUR = "VENDEUR", "Vendeur"
         ACHETTEUR = "ACHETTEUR", "Achetteur"
         VISITEUR = "VISITEUR", "Visiteur"
+        MEMBER="MEMBRE","Membre"
 
 
     email=models.EmailField(unique=True,blank=True)
@@ -44,7 +45,9 @@ class Achetteur(models.Model):
     profile = models.ImageField(upload_to="profiles/Vendeur/images",blank=True,null=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
 
-
+class Member(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    poste=models.CharField(max_length=150,blank=True,null=True)
 
 
 

@@ -29,8 +29,11 @@
 
 	<!-- SPECIFIC CSS -->
     {% block specific_css%}
-    <link href="{% static 'css/about.css'%}" rel="stylesheet">
+
     {%endblock%}
+    {% block link%}
+
+    {% endblock%}
 
 
     <!-- YOUR CUSTOM CSS -->
@@ -41,10 +44,20 @@
 <body>
 
 	<div id="page">
+        <header class="version_1">
+        {% include 'composants/header.html'%}
+            {% include 'composants/navigation.html'%}
+            	</header>
+	<!-- /header -->
 
+<main>
 {% block content%}
 
 {% endblock%}
+</main>
+	<!-- /main -->
+{% include 'composants/footer.html'%}
+
 	<div id="toTop"></div><!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
