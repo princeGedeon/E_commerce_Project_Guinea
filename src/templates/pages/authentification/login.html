@@ -1,0 +1,44 @@
+{% extends 'pages/authentification/base_auth.html'%}
+{% load static%}
+{% block content%}
+    <div class="form-body" style="overflow:hidden;">
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>LOGIN</h3>
+                    <p>Inscrivez-vous? Guinea Structure</p>
+                    <img src="{% static 'authentification/images/graphic5.svg'%}" alt="">
+                </div>
+            </div>
+            <div class="form-holder" style="overflow:hidden;">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img class="logo-size" src="{% static 'authentification/images/logo-light.svg'%}" alt="">
+                                    <img class="logo-size" src="{% static 'authentification/images/logo-light.svg'%}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="page-links">
+                            <a href="{% url 'login'%}" class="active">Login</a><a href="{% url 'register'%}">Register</a>
+                        </div>
+                        <form method="post">
+                            {% csrf_token%}
+                            <input class="form-control" type="email" name="email" placeholder="Addresse E-mail" required>
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn">Login</button> <a href="forget9.html">Forget password?</a>
+                            </div>
+                        </form>
+                        <div class="other-links">
+                            <span>Ou se connecter avec </span><a href="#">Google</a><a href="#">Linkedin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock%}

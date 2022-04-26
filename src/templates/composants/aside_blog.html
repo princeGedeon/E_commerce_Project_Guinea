@@ -17,7 +17,7 @@
 									<a href="#0"><img src="{{l_post.image.url}}" alt=""></a>
 								</div>
 								<small>{{l_post.category}}</small>
-								<h3><a href="#" title="">{{l_post.contenu | truncatechars:30}}</a></h3>
+								<h3><a href="{%  url 'detail_post' slug=l_post.slug %}" title="">{{l_post.contenu | truncatechars:30}}</a></h3>
 							</li>
 							{% endfor%}
 

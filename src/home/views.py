@@ -3,9 +3,13 @@ from django.shortcuts import render
 # Create your views here.
 from user_app.models import Member
 
+from blog.models import Post
+
 
 def index(request):
-    return render(request,'pages/index.html')
+    l_post=Post.objects.all().order_by('-date')[0:4]
+    context={"l_post":l_post}
+    return render(request,'pages/index.html',context)
 
 def about(request):
     membres=Member.objects.all()

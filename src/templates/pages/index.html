@@ -11,7 +11,7 @@
 
 
 
-		{% include 'composants/hero_video.html'%}
+		{% include 'composants/hero_carousel.html'%}
 
 		<div class="container margin_60_35">
 			<div class="main_title">
@@ -407,73 +407,31 @@
 		</div>
 		<!-- /bg_gray -->
 
-		<div class="container margin_60_35">
+
+<div class="container margin_60_35">
 			<div class="main_title">
-				<h2>Latest news</h2>
+				<h2>Les dernieres News</h2>
 				<span>Blog</span>
-				<p>Cum doctus civibus efficiantur in imperdiet deterruisset</p>
+				<p>Soyez au parfum de l'actu</p>
 			</div>
 			<div class="row">
+				{% for blog in l_post %}
 				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
+					<a class="box_news" href="{% url 'detail_post' slug=blog.slug  %}">
 						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-1.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
+							<img src="{{blog.image.url}}" data-src="{{blog.image.url}}" alt="" width="400" height="266" class="lazy">
+							<figcaption><strong>{{blog.date| date:"d" }}</strong>{{blog.date|date:"M"}}</figcaption>
 						</figure>
 						<ul>
-							<li>by Mark Twain</li>
-							<li>20.11.2017</li>
+							<li>by {{blog.user}}</li>
+							<li>{{blog.date}}</li>
 						</ul>
-						<h4>Pri oportere scribentur eu</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
+						<h4>{{blog.title}}</h4>
+						<p>{{blog.contenu | truncatechars:50}}</p>
 					</a>
 				</div>
-				<!-- /box_news -->
-				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
-						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-2.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
-						</figure>
-						<ul>
-							<li>By Jhon Doe</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Duo eius postea suscipit ad</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-					</a>
-				</div>
-				<!-- /box_news -->
-				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
-						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-3.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
-						</figure>
-						<ul>
-							<li>By Luca Robinson</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Elitr mandamus cu has</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-					</a>
-				</div>
-				<!-- /box_news -->
-				<div class="col-lg-6">
-					<a class="box_news" href="blog.html">
-						<figure>
-							<img src="img/blog-thumb-placeholder.jpg" data-src="img/blog-thumb-4.jpg" alt="" width="400" height="266" class="lazy">
-							<figcaption><strong>28</strong>Dec</figcaption>
-						</figure>
-						<ul>
-							<li>By Paula Rodrigez</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Id est adhuc ignota delenit</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-					</a>
-				</div>
-				<!-- /box_news -->
+
+				{% endfor%}
 			</div>
 			<!-- /row -->
 		</div>

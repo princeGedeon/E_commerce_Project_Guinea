@@ -1,0 +1,47 @@
+{% extends 'pages/authentification/base_auth.html'%}
+{% load static%}
+{% block content%}
+    <div class="form-body" style="overflow:hidden;">
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>S'enregistrer</h3>
+                    <p>Maarket Virtuelle</p>
+                    <img src="{% static 'authentification/images/graphic5.svg'%}" alt="">
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img class="logo-size" src="{% static 'authentification/images/logo-light.svg'%}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="page-links">
+                            <a href="{% url 'login' %}">Login</a><a href="{% url 'register'%}" class="active">Register</a>
+                        </div>
+                        <form method="post">
+                            {% csrf_token%}
+                       <input class="form-control" type="text" name="username" placeholder="Pseudo" required id="id_username">
+                            <input class="form-control" type="text" name="first_name" placeholder="Noms" required id="id_first_name">
+                            <input class="form-control" type="text" name="last_name" placeholder="Prénoms" required id="id_last_name">
+                            <input class="form-control" type="email" name="email" placeholder="Email" required id="id_email">
+                            <input class="form-control" type="password" name="password1" placeholder="Mot de passe" required id="id_password" autocomplete="new-password">
+                            <input class="form-control" type="password" name="password2" placeholder="Confirmer mot de passe" required id="id_password2" autocomplete="new-password">
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn">Register</button>
+                            </div>
+                        </form>
+                        <div class="other-links">
+                            <span>Or register with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock                                     %}

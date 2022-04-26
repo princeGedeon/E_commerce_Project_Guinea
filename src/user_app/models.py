@@ -14,8 +14,8 @@ class User(AbstractUser):
 
 
     email=models.EmailField(unique=True,blank=True)
-    phone=models.CharField(max_length=15)
-    nationalite=models.CharField(max_length=125)
+    phone=models.CharField(max_length=15,blank=True,null=True)
+    nationalite=models.CharField(max_length=125,blank=True,null=True)
     type=models.CharField(choices=Type.choices,max_length=255,default=Type.VISITEUR)
     USERNAME_FIELD = 'email'
 
