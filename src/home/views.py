@@ -7,8 +7,10 @@ from blog.models import Post
 
 
 def index(request):
+    user=request.user
+
     l_post=Post.objects.all().order_by('-date')[0:4]
-    context={"l_post":l_post}
+    context={"l_post":l_post,"user":user}
     return render(request,'pages/index.html',context)
 
 def about(request):

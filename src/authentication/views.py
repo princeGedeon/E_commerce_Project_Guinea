@@ -15,9 +15,16 @@ def loginView(request):
         password=request.POST['password']
         user=authenticate(request,email=email,password=password)
         if user is not None and user.is_active:
-            login(request,user)
-            messages.success(request,"Bienvenue")
-            return redirect("index")
+            login(request, user)
+            if not user.is_valid:
+
+                return redirect('profile_form')
+            else:
+
+                return redirect('index')
+                print("Vous etes authentifié")
+
+
         else:
             messages.error(request,"Erreur d'authentification")
 
@@ -30,16 +37,19 @@ def registerView(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Votre compte a été créé')
-            return redirect('login')
+
         else:
             messages.error(request, form.errors)
     return render(request,'pages/authentification/register.html',{'form':form})
 
-
-
-
 @login_required(login_url='login')
+def profileRegister(request):
+    return render(request,"pages/authentification/profile_register.html")
+
+
+
+@login_required(login_url="login")
 def deconnection(request):
     logout(request)
-    return redirect("login")
+    return redirect("index")
 

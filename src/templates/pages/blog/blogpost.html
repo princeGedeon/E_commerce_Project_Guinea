@@ -63,7 +63,7 @@
 										{{comment.commentaire}}
 									</p>
 								</div>
-
+								{% if comment.reponse_set.count == 0 %}
 								<ul class="replied-to">
 									{% for reponse in comment.reponse_set.all%}
 									<li>
@@ -83,6 +83,7 @@
 									</li>
 									{% endfor%}
 								</ul>
+								{% endif%}
 							</li>
 							{% endfor%}
 
@@ -90,6 +91,7 @@
 					</div>
 
 					<hr>
+					{% if user.is_authenticated %}
 
 					<h5>Laissez un commentaire</h5>
 					<!--<div class="row">
@@ -109,12 +111,16 @@
 							</div>
 						</div>
 					</div>-->
+<form method="POST">
+	 {% csrf_token %}
 					<div class="form-group">
-						<textarea class="form-control" name="comments" id="comments2" rows="6" placeholder="Comment"></textarea>
+						<textarea class="form-control" name="commentaire" id="id_commentaire" rows="6" placeholder="Votre commentaire"></textarea>
 					</div>
 					<div class="form-group">
 						<button type="submit" id="submit2" class="btn_1 add_bottom_15">Commenter</button>
 					</div>
+	</form>
+					{% endif%}
 
 				</div>
 				<!-- /col -->

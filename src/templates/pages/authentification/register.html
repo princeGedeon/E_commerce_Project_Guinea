@@ -14,16 +14,19 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <div class="website-logo-inside">
-                            <a href="index.html">
-                                <div class="logo">
-                                    <img class="logo-size" src="{% static 'authentification/images/logo-light.svg'%}" alt="">
-                                </div>
-                            </a>
-                        </div>
+
                         <div class="page-links">
                             <a href="{% url 'login' %}">Login</a><a href="{% url 'register'%}" class="active">Register</a>
                         </div>
+                         {% if messages %}
+                        <div>
+                            <ul class="messages">
+                                {% for message in messages%}
+                                <li {% if message.tags%} class="{{message.tags}}"{% endif%}>{{message}}</li>
+                                {% endfor%}
+                            </ul>
+                        </div>
+                        {% endif%}
                         <form method="post">
                             {% csrf_token%}
                        <input class="form-control" type="text" name="username" placeholder="Pseudo" required id="id_username">
