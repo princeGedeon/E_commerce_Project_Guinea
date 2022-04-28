@@ -23,7 +23,6 @@ class BlogListView(ListView):
         context['latest_posts']=context['posts'].order_by('-date')[0:4]
         context['categories']=Categorie.objects.all()
 
-        print(context)
         return context
 
 
