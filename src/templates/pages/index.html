@@ -439,8 +439,10 @@
 
 {% endblock%}
 	<!-- /main -->
-{% include 'composants/footer.html'%}
 
+  {% block footer%}
+{% include 'composants/footer.html'%}
+        {% endblock%}
 	</div>
 	<!-- page -->
 

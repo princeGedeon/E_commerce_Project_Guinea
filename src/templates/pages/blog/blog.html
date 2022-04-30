@@ -43,7 +43,7 @@
 								<div class="post_info">
 									<small>{{post.category}} - {{post.date}}</small>
 									<h2><a href="{% url 'detail_post' slug=post.slug %}">{{post.titre}}</a></h2>
-									<p>{{post.contenu | truncatewords:15}}</p>
+									<p>{{post.contenu | truncatechars:50}}</p>
 									<ul>
 										<li>
 											<div class="thumb"><img src="img/avatar.jpg" alt=""></div>

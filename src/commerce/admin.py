@@ -1,10 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from commerce.models import Product,Tags_Products,Stock
+from commerce.models import Product,Tags_Products,Stock,Categorie
 
 
-
+admin.site.register(Categorie)
 admin.site.register(Tags_Products)
 
 @admin.register(Product)
