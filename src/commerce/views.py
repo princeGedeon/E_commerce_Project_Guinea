@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 
 # Create your views here.
@@ -10,21 +11,20 @@ from commerce.models import Product,Categorie
 class ProductListView(ListView):
 
     context_product=Product.objects.all()
-    template_name = "pages/market/list_produits.html"
-    paginate_by = 16 # add this
+    queryset = Product.objects.all()
+
 
 
 
 
     def get_queryset(self):
+        context_product = Product.objects.all()
+
         item = self.request.GET.get('recherche_article')
         sort=self.request.GET.get("sort")
 
         if item != '' and item is not None:
             context_product = Product.objects.filter(libelle__icontains=item)
-
-        else:
-            context_product=Product.objects.all()
 
         if sort != '' and sort is not None:
             if sort == 'rating':
@@ -33,6 +33,17 @@ class ProductListView(ListView):
                 context_product = context_product.order_by('-price')
             elif sort=='date':
                 context_product=context_product.order_by("-date")
+
+        page = self.request.GET.get('page', 1)
+        paginator = Paginator(context_product, 12)
+        try:
+            context_product = paginator.page(page)
+        except PageNotAnInteger:
+            context_product = paginator.page(1)
+        except EmptyPage:
+            context_product= paginator.page(paginator.num_pages)
+
+
 
 
         return context_product

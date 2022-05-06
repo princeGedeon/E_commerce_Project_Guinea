@@ -31,8 +31,8 @@
 					</li>
 
 					<li>
-						<a href="#0"><i class="ti-view-grid"></i></a>
-						<a href="listing-row-1-sidebar-left.html"><i class="ti-view-list"></i></a>
+						<a href="{% url 'list_produits' %}"><i class="ti-view-grid"></i></a>
+						<a href="{% url 'list_produits_2' %}"><i class="ti-view-list"></i></a>
 					</li>
 					<li>
 						<a data-bs-toggle="collapse" href="#filters" role="button" aria-expanded="false" aria-controls="filters">
@@ -220,17 +220,17 @@
 			<!-- /row -->
 
 				<div class="pagination__wrapper no_border add_bottom_30">
-						{%if is_paginated%}
+						{%if produits.has_other_pages %}
 						<ul class="pagination">
-							{% if page_obj.has_previous %}
-							<li><a href="?page={{page_obj.previous_page_number}}" class="prev" title="previous page">&#10094;</a></li>
+							{% if produits.has_previous %}
+							<li><a href="?page={{produits.previous_page_number}}" class="prev" title="previous page">&#10094;</a></li>
 							{% else %}
 							 <li class="page-item disabled">
           <a class="page-link" href="#">&laquo;</a>
         </li>
         {% endif %}
-		{% for i in paginator.page_range %}
-		{% if page_obj.number == i %}
+		{% for i in produits.paginator.page_range %}
+		{% if produits.number == i %}
 		<li class="page-item"><a class="page-link active">{{ i }}</a></li>
         {% else %}
         <li class="page-item">
@@ -238,9 +238,9 @@
         </li>
         {% endif %}
 		{% endfor %}
-		{% if page_obj.has_next %}
+		{% if produits.has_next %}
         <li class="page-item">
-          <a href="?page={{page_obj.next_page_number}}" class="page-link">&raquo;</a>
+          <a href="?page={{produits.next_page_number}}" class="page-link">&raquo;</a>
         </li>
         {% else %}
         <li class="page-item disabled">
