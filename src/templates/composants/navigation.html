@@ -21,52 +21,20 @@
 												<ul>
 													<li><a href="listing-grid-1-full.html">Trending</a></li>
 													<li><a href="listing-grid-2-full.html">Life style</a></li>
-													<li><a href="listing-grid-3.html">Running</a></li>
-													<li><a href="listing-grid-4-sidebar-left.html">Training</a></li>
+
 													<li><a href="listing-grid-5-sidebar-right.html">View all Collections</a></li>
 												</ul>
 											</li>
-											<li><span><a href="#">Men</a></span>
+											{% for cat in categories %}
+
+											<li><span><a href="#">{{cat.libelle}}</a></span>
 												<ul>
-													<li><a href="listing-grid-6-sidebar-left.html">Offers</a></li>
-													<li><a href="listing-grid-7-sidebar-right.html">Shoes</a></li>
-													<li><a href="listing-row-1-sidebar-left.html">Clothing</a></li>
-													<li><a href="listing-row-3-sidebar-left.html">Accessories</a></li>
 													<li><a href="listing-row-4-sidebar-extended.html">Equipment</a></li>
 												</ul>
 											</li>
-											<li><span><a href="#">Women</a></span>
-												<ul>
-													<li><a href="listing-grid-1-full.html">Best Sellers</a></li>
-													<li><a href="listing-grid-2-full.html">Clothing</a></li>
-													<li><a href="listing-grid-3.html">Accessories</a></li>
-													<li><a href="listing-grid-4-sidebar-left.html">Shoes</a></li>
-												</ul>
-											</li>
-											<li><span><a href="#">Boys</a></span>
-												<ul>
-													<li><a href="listing-grid-6-sidebar-left.html">Easy On Shoes</a></li>
-													<li><a href="listing-grid-7-sidebar-right.html">Clothing</a></li>
-													<li><a href="listing-row-3-sidebar-left.html">Must Have</a></li>
-													<li><a href="listing-row-4-sidebar-extended.html">All Boys</a></li>
-												</ul>
-											</li>
-											<li><span><a href="#">Girls</a></span>
-												<ul>
-													<li><a href="listing-grid-1-full.html">New Releases</a></li>
-													<li><a href="listing-grid-2-full.html">Clothing</a></li>
-													<li><a href="listing-grid-3.html">Sale</a></li>
-													<li><a href="listing-grid-4-sidebar-left.html">Best Sellers</a></li>
-												</ul>
-											</li>
-											<li><span><a href="#">Customize</a></span>
-												<ul>
-													<li><a href="listing-row-1-sidebar-left.html">For Men</a></li>
-													<li><a href="listing-row-2-sidebar-right.html">For Women</a></li>
-													<li><a href="listing-row-4-sidebar-extended.html">For Boys</a></li>
-													<li><a href="listing-grid-1-full.html">For Girls</a></li>
-												</ul>
-											</li>
+											{% endfor%}
+
+
 										</ul>
 									</div>
 								</li>
@@ -75,10 +43,12 @@
 					</div>
 					<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 						<!-- BArre de recherche-->
+						<form method="get">
 						<div class="custom-search-input">
-							<input type="text" placeholder="Search over 10.000 products">
+							<input type="text" name="recherche_article" placeholder="Search over 10.000 products">
 							<button type="submit"><i class="header-icon_search_custom"></i></button>
 						</div>
+							</form>
 					</div>
 
 
@@ -110,7 +80,7 @@
 							</li>
 
 							<li>
-								<a href="#0" class="wishlist"><span>Wishlist</span></a>
+								<a href="#0" class="wishlist"><span>Liste à souhait</span></a>
 							</li>
 
 							<li>
@@ -118,7 +88,7 @@
 									<a href="account.html" class="access_link"><span>Account</span></a>
 									<div class="dropdown-menu">
 										{%if user.is_authenticated%}
-										<a href="{% url 'logout' %}" class="btn_1">Se déconnecter</a>
+										<a href="{% url 'logout' %}" class="btn_1 " style="background-color:red;">Se déconnecter</a>
 										{%else%}
 										<a href="{% url 'login' %}" class="btn_1">Sign In or Sign Up</a>
 										{%endif%}

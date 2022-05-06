@@ -9,38 +9,27 @@
  {% endblock%}
 {% block content%}
 
-<div class="top_banner">
-			<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.3)">
-				<div class="container">
-					<div class="breadcrumbs">
-						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Category</a></li>
-							<li>Page active</li>
-						</ul>
-					</div>
-					<h1>Shoes - Grid listing</h1>
-				</div>
-			</div>
-			<img src="img/bg_cat_shoes.jpg" class="img-fluid" alt="">
-		</div>
-		<!-- /top_banner -->
+
 
 			<div id="stick_here"></div>
-			<div class="toolbox elemento_stick">
+			<form class="toolbox elemento_stick">
 				<div class="container">
 				<ul class="clearfix">
 					<li>
+						<form method="get">
 						<div class="sort_select">
 							<select name="sort" id="sort">
-                                    <option value="popularity" selected="selected">Trier selon la demande</option>
+                                    <option value="popularity" >Trier selon la demande</option>
                                     <option value="rating">Trier selon le prix: petit au grand</option>
-                                    <option value="date">Trier selon le prix: grand au petit</option>
-                                    <option value="price">Trier selon la nouveauté</option>
+                                    <option value="rating2">Trier selon le prix: grand au petit</option>
+                                    <option value="date">Trier selon la nouveauté</option>
 
 							</select>
 						</div>
+							<input type="submit" value="soumettre" >
+						</form>
 					</li>
+
 					<li>
 						<a href="#0"><i class="ti-view-grid"></i></a>
 						<a href="listing-row-1-sidebar-left.html"><i class="ti-view-list"></i></a>
@@ -52,43 +41,33 @@
 					</li>
 				</ul>
 				<div class="collapse" id="filters"><div class="row small-gutters filters_listing_1">
-				<div class="col-lg-3 col-md-6 col-sm-6">
+
+				<form method="get" class="col-lg-3 col-md-6 col-sm-6">
+
+
 					<div class="dropdown">
 						<a href="#" data-bs-toggle="dropdown" class="drop">Categories</a>
+
 						<div class="dropdown-menu">
 							<div class="filter_type">
+
 									<ul>
+										{% for cat in categories%}
 										<li>
-											<label class="container_check">Men <small>12</small>
-											  <input type="checkbox">
+											<label class="container_check">{{cat.libelle}} <small>{{cat.product_set.count}}</small>
+											  <input type="checkbox" value="{{cat.libelle}}" >
 											  <span class="checkmark"></span>
 											</label>
 										</li>
-										<li>
-											<label class="container_check">Women <small>24</small>
-											  <input type="checkbox">
-											  <span class="checkmark"></span>
-											</label>
-										</li>
-										<li>
-											<label class="container_check">Running <small>23</small>
-											  <input type="checkbox">
-											  <span class="checkmark"></span>
-											</label>
-										</li>
-										<li>
-											<label class="container_check">Training <small>11</small>
-											  <input type="checkbox">
-											  <span class="checkmark"></span>
-											</label>
-										</li>
+										{% endfor%}
 									</ul>
-									<a href="#0" class="apply_filter">Apply</a>
+								<!--	<a href="#0" class="apply_filter">Appliquer</a>-->
+								<input type="submit" class="apply_filter" value="Appliquer">
 								</div>
 						</div>
 					</div>
 					<!-- /dropdown -->
-				</div>
+				</form>
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="dropdown">
 						<a href="#" data-bs-toggle="dropdown" class="drop">Color</a>
@@ -202,7 +181,9 @@
 
 				</div></div></div>
 				</div>
-			</div>
+
+			</form>
+
 			<!-- /toolbox -->
 
 			<div class="container margin_30">
