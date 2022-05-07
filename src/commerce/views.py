@@ -42,10 +42,6 @@ class ProductListView(ListView):
             context_product = paginator.page(1)
         except EmptyPage:
             context_product= paginator.page(paginator.num_pages)
-
-
-
-
         return context_product
 
     def get_context_data(self, *, object_list=None, **kwargs):
