@@ -208,7 +208,7 @@
 						<ul>
 							<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left" title="Ajouter au favoris"><i class="ti-heart"></i><span>Ajouter au favoris</span></a></li>
 						<!--	<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a></li>-->
-							<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left" title="Ajouter au panier"><i class="ti-shopping-cart"></i><span>Ajouter au panier</span></a></li>
+							<li><a href="#0" class="tooltip-1 ted" data-bs-toggle="tooltip" data-bs-placement="left" title="Ajouter au panier "><i class="ti-shopping-cart"></i><span>Ajouter au panier</span></a></li>
 						</ul>
 					</div>
 					<!-- /grid_item -->
@@ -277,3 +277,16 @@
 
 	</div>
 	<!-- page -->
+{% block js%}
+<script type="text/javascript">
+	if (localStorage.getItem('panier')==null){
+	var panier={};
+	}
+	else{
+	panier=JSON.parse(localStorage.getItem('panier'));
+	}
+	$(document).on('click','.ted',function(){
+		console.log('click');
+	})
+</script>
+{% endblock%}

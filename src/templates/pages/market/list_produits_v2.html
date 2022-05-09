@@ -185,7 +185,7 @@
 
 	                        </div>
 	                        <ul>
-	                            <li><a href="#0" class="btn_1">Add to cart</a></li>
+	                            <li><a href="#0" class="btn_1 ted">Add to cart</a></li>
 	                            <li><a href="#0" class="btn_1 gray tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
 	                            <li><a href="#0" class="btn_1 gray tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a></li>
 	                        </ul>
@@ -239,3 +239,16 @@
 
 	</div>
 	<!-- page -->
+{% block js%}
+<script type="text/javascript">
+	if (localStorage.getItem('panier')==null){
+	var panier={};
+	}
+	else{
+	panier=JSON.parse(localStorage.getItem('panier'));
+	}
+	$(document).on('click','.ted',function(){
+		console.log('click');
+	})
+</script>
+{% endblock%}

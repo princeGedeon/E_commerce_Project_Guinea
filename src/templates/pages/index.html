@@ -445,4 +445,16 @@
         {% endblock%}
 	</div>
 	<!-- page -->
-
+{% block js%}
+<script type="text/javascript">
+	if (localStorage.getItem('panier')==null){
+	var panier={};
+	}
+	else{
+	panier=JSON.parse(localStorage.getItem('panier'));
+	}
+	$(document).on('click','.ted',function(){
+		console.log('click');
+	})
+</script>
+{% endblock%}
