@@ -185,7 +185,7 @@
 
 	                        </div>
 	                        <ul>
-	                            <li><a href="#0" class="btn_1 ted">Add to cart</a></li>
+	                            <li><a href="#0" class="btn_1 ted" id="{{produit.id}}">Add to cart</a></li>
 	                            <li><a href="#0" class="btn_1 gray tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
 	                            <li><a href="#0" class="btn_1 gray tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a></li>
 	                        </ul>
@@ -239,6 +239,7 @@
 
 	</div>
 	<!-- page -->
+<!-- page -->
 {% block js%}
 <script type="text/javascript">
 	if (localStorage.getItem('panier')==null){
@@ -249,6 +250,17 @@
 	}
 	$(document).on('click','.ted',function(){
 		console.log('click');
+		var item_id=this.id.toString();
+		console.log(item_id);
+		if (panier[item_id]!=undefined)
+		{
+		panier[item_id]=panier[item_id]+1;
+		}else{
+		panier[item_id]=1;
+		}
+		console.log(panier);
+
+		localStorage.setItem('panier',JSON.stringify(panier));
 	})
 </script>
 {% endblock%}
