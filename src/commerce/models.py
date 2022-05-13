@@ -63,3 +63,11 @@ class Reviews(models.Model):
     note=models.IntegerField()
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     date_created=models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_note(self):
+        return ['*']*self.note
+
+    @property
+    def get_no_note(self):
+        return ['*']*(5-self.note)

@@ -56,7 +56,8 @@ def detailView(request,pk):
     produit=get_object_or_404(Product,pk=pk)
     template_name = 'pages/market/detail_produit.html'
     review=Reviews.objects.all()
-    context={'produit':produit,"user":request.user}
+    r=[(review[i],review[i+1]) for i in range(0,len(review)-1,2)]
+    context={'produit':produit,"user":request.user,"reviews":r}
     return render(request,template_name,context)
 
 def reviewView(request,pk):
