@@ -1,11 +1,12 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 # Create your views here.
 from django.views.generic import ListView, DetailView
 
 from commerce.models import Product,Categorie
 
+from commerce.models import Reviews
 
 
 class ProductListView(ListView):
@@ -50,7 +51,24 @@ class ProductListView(ListView):
         context['categories']=Categorie.objects.filter(is_visible=True)
         return context
 
-class ProductDetalView(DetailView):
-    model = Product
+
+def detailView(request,pk):
+    produit=get_object_or_404(Product,pk=pk)
     template_name = 'pages/market/detail_produit.html'
-    context_object_name="produit"
+    review=Reviews.objects.all()
+    context={'produit':produit,"user":request.user}
+    return render(request,template_name,context)
+
+def reviewView(request,pk):
+    produit=get_object_or_404(Product,pk=pk)
+
+    if request.user.is_authenticated:
+        if request.method=='POST':
+            title=request.POST.get('title')
+            content=request.POST.get('content')
+            note=request.POST.get('rating-input')
+            review=Reviews.objects.create(title=title,note=note,content=content,user=request.user)
+
+            review.save()
+            return redirect('detail_produit',pk=produit.id)
+    return render(request,"pages/market/reviews.html",{"produit":produit})

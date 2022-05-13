@@ -29,8 +29,14 @@
 	                <!-- /page_header -->
 	                <div class="prod_info">
 	                    <h1>{{produit.libelle}}</h1>
-
-	                    <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><em>4 reviews</em></span>
+						 <span class="rating">
+						{% for s in produit.get_stars%}
+	                   <i class="icon-star voted"></i>
+							{% endfor%}
+							 {% for s in produit.get_no_stars%}
+							<i class="icon-star"></i>
+							 {% endfor%}
+							 <em>{{produit.n_stars}}</em></span>
 	                    <p><small>{{produit.category}}</small><br>{{produit.desc}}</p>
 	                    <!--<div class="prod_options">
 	                        <div class="row">
@@ -218,7 +224,7 @@
 	                                </div>
 	                            </div>
 	                            <!-- /row -->
-	                            <p class="text-end"><a href="leave-review.html" class="btn_1">Leave a review</a></p>
+	                            <p class="text-end"><a href="{%url 'review' produit.pk%}" class="btn_1">Leave a review</a></p>
 	                        </div>
 	                        <!-- /card-body -->
 	                    </div>

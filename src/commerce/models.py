@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 from user_app.models import Vendeur
 
+from user_app.models import User
+
 
 class Tags_Products(models.Model):
     libelle=models.CharField(max_length=255)
@@ -31,6 +33,17 @@ class Product(models.Model):
 
     def __str__(self):
         return f"Produit {self.libelle} de {self.vendeur}"
+    @property
+    def n_stars(self):
+        return int((5*self.etoile)/100)
+    @property
+    def get_stars(self):
+        tmp=self.n_stars
+        return ['*']*tmp
+    @property
+    def get_no_stars(self):
+        tmp=5-self.n_stars
+        return ['*']*tmp
 
 class Stock(models.Model):
     produit=models.ForeignKey(Product,on_delete=models.CASCADE)
@@ -43,3 +56,10 @@ class Stock(models.Model):
     @property
     def get_vendeur(self):
         return self.produit.vendeur
+
+class Reviews(models.Model):
+    title=models.CharField(max_length=75)
+    content=models.CharField(max_length=300)
+    note=models.IntegerField()
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
+    date_created=models.DateTimeField(auto_now_add=True)

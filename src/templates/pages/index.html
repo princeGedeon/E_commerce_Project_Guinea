@@ -465,7 +465,7 @@
 		panier[item_id]=1;
 		}
 		console.log(panier);
-
+		document.getElementById("panier_n").innerText=panier.lenght;
 		localStorage.setItem('panier',JSON.stringify(panier));
 	})
 </script>
