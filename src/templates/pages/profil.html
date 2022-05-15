@@ -1,0 +1,144 @@
+{% extends 'base.html'%}
+{% load static%}
+
+    {%block specific_css%}
+ <!-- SPECIFIC CSS -->
+    <link href="{% static 'css/home_1.css'%}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/profil.css'%}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+	<title>Profil</title>
+ {% endblock%}
+{% block content%}
+
+
+
+ <div>
+  <div class="card">
+    <header  class="card_gallery">
+        <img width="100%" src="{{user.profile.url}}">
+    </header>
+    <main class="card__user">
+      <img src="{{user.couverture.url}}" alt="" class="card__user-image">
+      <div class="card__user-info">
+        <h2 class="card__user-info__name">{{user.last_name}} {{user.first_name}} ({{user.username}})</h2>
+        <p class="card__user-info__stats">{{user.email}}</p>
+        <p class="card__user-info__desc">autres info</p>
+      </div>
+      <div class="card__user-actions">
+        <button onclick="document.getElementById('id01').style.display='block'"  class="card__user-actions-follow">Modifier mon profil</button>
+      </div>
+      <div id="id01" class="modal">
+                <div class="modal-content animate">
+                  <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  </div>
+                  <div class="modal-cont">
+
+                  <h2 style="text-align: center;">Modifier profil</h2>
+                    <form action="" method="POST">
+                      <label for="nom" class="form-label">nom</label>
+                      <input id="nom" class="form-control" type="text" name="nom" placeholder="Nom">
+                                            <label for="nom" class="form-label">nom</label>
+                      <input id="nom" class="form-control" type="text" name="nom" placeholder="Nom">
+                                            <label for="nom" class="form-label">nom</label>
+                      <input id="nom" class="form-control" type="text" name="nom" placeholder="Nom">
+                                            <label for="nom" class="form-label">nom</label>
+                      <input id="nom" class="form-control" type="text" name="nom" placeholder="Nom">
+                                            <label for="nom" class="form-label">nom</label>
+                      <input id="nom" class="form-control" type="text" name="nom" placeholder="Nom">
+                     
+                      
+                      <br>
+                      <input class="btn btn-primary" type="submit" name="validate" value="Valider">
+                      <button  type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Quitter</button>
+                  </form>
+                  </div>
+                </div>
+          </div>
+    </main>
+  </div>
+  <div class="card">
+    <button class="accordion">Mes posts</button>
+    <div class="panel">
+          <br>
+    <h2 id="video" class="separation separation1"><span>Les vidéos</span></h2>
+    <section >
+    <div class="main-container">
+      <ul class="grid-wrapper">
+        <li class="content-item">
+          <div class="pic">
+              <a href="video.html"><img width="100%" src="https://img.youtube.com/vi/RCivWovB3Kg/mqdefault.jpg"></a>
+              <a href="video.html" class="centered"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div>
+            <a href="video.html"><h3>titre de la vidéo</h3></a>
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="pic">
+              <a href=""><img width="100%" src="img/image1.jpg"></a>
+              <a href="" class="centered"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div>
+            <a href=""><h3>titre de la vidéo</h3></a>
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="pic">
+              <a href=""><img width="100%" src="img/image1.jpg"></a>
+              <a href="" class="centered"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div>
+            <a href=""><h3>titre de la vidéo</h3></a>
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="pic">
+              <a href=""><img width="100%" src="img/image1.jpg"></a>
+              <a href="" class="centered"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div>
+            <a href=""><h3>titre de la vidéo</h3></a>
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="pic">
+              <a href=""><img width="100%" src="img/image1.jpg"></a>
+              <a href="" class="centered"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div>
+            <a href=""><h3>titre de la vidéo</h3></a>
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="pic">
+              <a href=""><img width="100%" src="img/image1.jpg"></a>
+              <a href="" class="centered"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div>
+            <a href=""><h3>titre de la vidéo</h3></a>
+          </div>
+        </li>
+          
+      </ul>
+      <div style="text-align: center; margin: 10px;">
+        <div class="button button1">Toutes les vidéos</div>
+      </div>
+       
+    </div>
+  </section>
+    </div>
+   
+  </div>
+
+ </div>
+
+
+{% endblock%}
+	<!-- /main -->
+
+  {% block footer%}
+{% include 'composants/footer.html'%}
+        {% endblock%}

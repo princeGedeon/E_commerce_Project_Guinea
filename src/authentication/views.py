@@ -46,6 +46,11 @@ def registerView(request):
 def profileRegister(request):
     return render(request,"pages/authentification/profile_register.html")
 
+@login_required(login_url='login')
+def profile(request):
+
+    context={"user":request.user}
+    return render(request,"pages/profil.html")
 
 
 @login_required(login_url="login")

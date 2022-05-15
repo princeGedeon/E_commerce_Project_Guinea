@@ -3,13 +3,14 @@ from django.urls import path
 
 
 
-from authentication.views import loginView,registerView,profileRegister,deconnection
+from authentication.views import loginView,registerView,profileRegister,deconnection, profile
 
 
 
 urlpatterns = [
 
     path('login/',loginView,name="login"),
+    path('profile/',profile,name="profil"),
     path('logout/',deconnection,name='logout'),
     path('register/',registerView,name="register"),
     path("profil_add/",profileRegister,name="profile_form"),
