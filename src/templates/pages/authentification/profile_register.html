@@ -13,73 +13,61 @@
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder simple-info">
-                    <div><img src="images/graphic6.svg" alt=""></div>
-                    <div><h3>We’re Accepting applications!</h3></div>
-                    <div><p>Fill the form, attach your  latest CV <br>and portfolio to get listed.</p></div>
+                    <div><img src="{% static 'authentification/images/graphic6.svg'%}" alt=""></div>
+                    <div><h3>Bienvenue , <strong>{{user.first_name}} {{user.last_name}} ({{user.username}}) </strong></h3></div>
+                    <div><p>Encore quelques instants...<br>Il est temps de compléter ton profil</p></div>
                 </div>
             </div>
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <form>
+                        <form method="post"  enctype="multipart/form-data">
+                            {% csrf_token%}
+                            {% if type == 1 %}
                             <div class="row">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="First name">
+                                    <input type="text" name="nationalite" class="form-control" placeholder="Votre nationalite">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="Last name">
+                                    <input type="text" class="form-control" name="ville" placeholder="Votre ville">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="E-mail Address">
+                                    <input type="text" name="profession" class="form-control" placeholder="Votre profession">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="Phone Number">
+                                    <input type="text" class="form-control" name="phone"placeholder="Numéro de téléphome">
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="Country">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="Linkedin link">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="Website, other links">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" placeholder="Website, other links">
-                                </div>
-                            </div>
+                            {% endif%}
+
                             <div class="row">
                                 <div class="col-12">
-                                    <textarea class="form-control" placeholder="Tell us about yourself.."></textarea>
+                                    <textarea class="form-control" name="bio" placeholder="Parlez moi un peu de vous.."></textarea>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 col-sm-6">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile">
-                                        <label class="custom-file-label" for="validatedCustomFile">CV (Resume)</label>
+                                        <input type="file" class="custom-file-input" accept="image/*" name="profile" id="id_profil">
+                                        <label class="custom-file-label" for="id_profil">Photo de profil</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile">
-                                        <label class="custom-file-label" for="validatedCustomFile">Other attachments</label>
+                                        <input type="file" class="custom-file-input" id="id_couverture" accept="image/*" name="couverture">
+                                        <label class="custom-file-label" for="id_couverture">Photo de couverture</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row top-padding">
                                 <div class="col-12 col-sm-6">
-                                    <input type="checkbox" id="chk1" required><label for="chk1">I agree on <a href="#">terms & conditions</a> of iofrm</label>
+                                    <input type="checkbox" id="chk1" required><label for="chk1">J'accepte les  <a href="#">termes de confidentioalité</a> de GuineaStructure</label>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-button text-right">
-                                        <button id="submit" type="submit" class="ibtn less-padding">Submit Application</button>
+                                        <button id="submit" type="submit" class="ibtn less-padding">Soumettre</button>
                                     </div>
                                 </div>
                             </div>

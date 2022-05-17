@@ -4,15 +4,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
-					<h3 data-bs-target="#collapse_1">Quick Links</h3>
+					<h3 data-bs-target="#collapse_1">Quelques liens rapides</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_1">
 						<ul>
-							<li><a href="about.html">Contactez-nous</a></li>
+							<li><a href="{%url 'contact'%}">Contactez-nous</a></li>
 
-							<li><a href="help.html">Aide</a></li>
-							<li><a href="account.html">Mon Compte</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="contacts.html">Contacts</a></li>
+							<li><a href="{% url 'about'%}">En savoir plus sur nous</a></li>
+							<li><a href="{% url 'profil'%}">Mon Compte</a></li>
+							<li><a href="{%url 'list_post'%}">Blog</a></li>
+
 						</ul>
 					</div>
 				</div>

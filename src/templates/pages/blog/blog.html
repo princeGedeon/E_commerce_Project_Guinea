@@ -47,7 +47,7 @@
 									<ul>
 										<li>
 											<div class="thumb"><img src="img/avatar.jpg" alt=""></div>
-											{{post.user.username}}
+											Par <a href="{% url 'get_profile' post.user.slug%}">{{post.user.username}}</a>
 										</li>
 										<li><i class="ti-comment"></i>{{post.comments_set.count }} </li>
 									</ul>

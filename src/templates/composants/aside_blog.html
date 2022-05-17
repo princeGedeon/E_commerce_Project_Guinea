@@ -14,7 +14,7 @@
 							{% for l_post in latest_posts %}
 							<li>
 								<div class="alignleft">
-									<a href="#0"><img src="{{l_post.image.url}}" alt=""></a>
+									<a href="{%  url 'detail_post' slug=l_post.slug %}"><img src="{{l_post.image.url}}" alt=""></a>
 								</div>
 								<small>{{l_post.category}}</small>
 								<h3><a href="{%  url 'detail_post' slug=l_post.slug %}" title="">{{l_post.contenu | truncatechars:30}}</a></h3>

@@ -30,8 +30,8 @@
 							<ul>
 								<li><a href="#"><i class="ti-folder"></i> {{post.category}}</a></li>
 								<li><i class="ti-calendar"></i> {{post.date}}</li>
-								<li><a href="#"><i class="ti-user"></i> {{post.user}}</a></li>
-								<li><a href="#"><i class="ti-comment"></i> (14) Comments</a></li>
+								<li><a href="{% url 'get_profile' post.user.slug %}"><i class="ti-user"></i> {{post.user}}</a></li>
+								<li><a href="#"><i class="ti-comment"></i> (post.comments_set.count) Commentaires</a></li>
 							</ul>
 						</div>
 						<!-- /post meta -->
@@ -52,12 +52,12 @@
 							{% for comment in post.comments_set.all %}
 							<li>
 								<div class="avatar">
-									<a href="#"><img src="{{comment.user.photo.url}}" alt="">
+									<a href="{% url 'get_profile' comment.user.slug %}"><img src="{{comment.user.photo.url}}" alt="">
 									</a>
 								</div>
 								<div class="comment_right clearfix">
 									<div class="comment_info">
-										By <a href="#">{{comment.user.username}}</a><span>|</span>{{comment.date}}<span>|</span><a href="#"><i class="icon-reply"></i></a>
+										Par <a href="{% url 'get_profile' comment.user.slug %}">{{comment.user.username}}</a><span>|</span>{{comment.date}}<span>|</span><a href="#"><i class="icon-reply"></i></a>
 									</div>
 									<p>
 										{{comment.commentaire}}
@@ -73,7 +73,7 @@
 										</div>
 										<div class="comment_right clearfix">
 											<div class="comment_info">
-												Par <a href="#">{{reponse.user.username}}</a><span>|</span>{{reponse.date}}<span>|</span><a href="#"><i class="icon-reply"></i></a>
+												Par <a href="{% url 'get_profile' reponse.user.slug%}">Par {{reponse.user.username}}</a><span>|</span>{{reponse.date}}<span>|</span><a href="#"><i class="icon-reply"></i></a>
 											</div>
 											<p>
 											{{reponse.contenu}}									</p>

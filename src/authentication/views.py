@@ -3,10 +3,10 @@ from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
-
+from django.shortcuts import get_object_or_404
 # Create your views here.
 from .forms import UserForm
+from user_app.models import User
 
 
 def loginView(request):
@@ -44,7 +44,42 @@ def registerView(request):
 
 @login_required(login_url='login')
 def profileRegister(request):
-    return render(request,"pages/authentification/profile_register.html")
+    user=request.user
+
+    if user.type=="VISITEUR":
+        type=0
+    elif user.type=="VENDEUR":
+        type=1
+    if request.method=="POST":
+        if type==0:
+            visiteur=user.visiteur
+            user.bio=request.POST.get('bio')
+            user.profile = request.FILES['profile']
+            user.couverture = request.FILES['couverture']
+
+            user.is_valid=True
+            user.save()
+            visiteur.save()
+            return redirect('index')
+        elif type==1:
+            vendeur=user.vendeur
+            vendeur.ville=request.POST.get('ville')
+            user.bio=request.POST.get('bio')
+            user.phone=request.POST.get('phone')
+            vendeur.profession=request.POST.get('profession')
+            user.nationalite=request.POST.get('nationalite')
+            user.profile = request.FILES['profile']
+            user.couverture = request.FILES['couverture']
+            user.is_valid=True
+            user.save()
+            vendeur.save()
+
+
+            return redirect('index')
+
+    context={'user':user,'type':type}
+
+    return render(request,"pages/authentification/profile_register.html",context)
 
 @login_required(login_url='login')
 def profile(request):
@@ -52,6 +87,12 @@ def profile(request):
     context={"user":request.user}
     return render(request,"pages/profil.html")
 
+
+def get_profile(request,slug):
+
+    user=get_object_or_404(User,slug=slug)
+    context={"user":user}
+    return render(request,"pages/profilv2.html")
 
 @login_required(login_url="login")
 def deconnection(request):

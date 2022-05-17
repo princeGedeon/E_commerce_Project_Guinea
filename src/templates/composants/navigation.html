@@ -86,7 +86,7 @@
 							<li>
 								<div class="dropdown dropdown-access">
 									<a href="{%url 'profil'%}" class="access_link"><span>Account</span></a>
-									<div class="dropdown-menu">
+									<div class="dropdown-menu" style="" >
 										{%if user.is_authenticated%}
 										<a href="{% url 'logout' %}" class="btn_1 " style="background-color:red;">Se déconnecter</a>
 										{%else%}
@@ -98,7 +98,7 @@
 												<a href="account.html"><i class="ti-package"></i>My Orders</a>
 											</li>
 											<li>
-												<a href="account.html"><i class="ti-user"></i>My Profile</a>
+												<a href="{% url 'profil'%}"><i class="ti-user"></i>My Profile</a>
 											</li>
 											<li>
 												<a href="{% url 'contact' %}"><i class="ti-help-alt"></i>Contactez-Nous</a>
